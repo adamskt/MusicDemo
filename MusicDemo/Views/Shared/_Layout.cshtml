@@ -3,12 +3,46 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>Music Demo::@ViewBag.Title</title>
     <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/css")" rel="stylesheet" type="text/css" />
     <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/themes/base/css")" rel="stylesheet" type="text/css" />
     <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Scripts/js")"></script>
 </head>
 <body>
-    @RenderBody()
+    <div id="wrapper">
+        <div id="splash">
+            <img src='@Url.Content("~/Content/Images/pic1.jpg")' alt="" />
+        </div>
+        <div id="menu">
+            <ul>
+                <li>@Html.ActionLink("Homepage", "Index", "Home")</li>
+                <li><a href="#">Genres</a></li>
+                <li><a href="#">Artists</a></li>
+                <li><a href="#">Albums</a></li>
+            </ul>
+        </div>
+        <div id="header">
+            <div id="logo">
+                <h1><a href="#">KnockoutJS Demo</a></h1>
+            </div>
+            <div id="search">
+                <form action="" method="post">
+                <div>
+                    <input class="form-text" name="search" size="32" maxlength="64" />
+                </div>
+                </form>
+            </div>
+        </div>
+        <div id="page">
+            <div id="content">
+                @RenderBody()
+            </div>
+            <br class="clearfix" />
+        </div>
+    </div>
+    <div id="footer">
+        Kelly Adams | Powered by <a href="http://www.freecsstemplates.org/">CSS Templates
+        </a>.
+    </div>
 </body>
 </html>

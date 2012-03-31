@@ -1,0 +1,3 @@
+version_packages
+install_to 'packages'
+chew 'machine.specifications'
