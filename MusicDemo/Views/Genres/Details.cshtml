@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Genre";
+    ViewBag.ScriptName = "Genre";
+}
+
+<script type="text/javascript">
+    var GenreId = "@ViewBag.GenreId";
+</script>
+<!-- ko with: Genre -->
+<div class="box">
+    <h2 data-bind="text: 'Genre: ' + Name"></h2>
+    <p data-bind="text: Description"></p>
+</div>
+<!-- /ko -->
+<br class="clearfix" />
+</div>
+<div id="sidebar">
+    <div class="box">
+        <h3>Albums</h3>
+        <ul class="list" data-bind="foreach: Albums">
+            <li><a data-bind="attr: { href: '/Albums/' + AlbumId }, text: Title"></a></li>
+        </ul>
+    </div>

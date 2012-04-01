@@ -127,9 +127,14 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ArtistsController.cs" />
-    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Api\AlbumsController.cs" />
+    <Compile Include="Api\ArtistsController.cs" />
+    <Compile Include="Api\BaseApiController.cs" />
+    <Compile Include="Api\GenresController.cs" />
+    <Compile Include="Api\AlbumsByGenreController.cs" />
+    <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Api\TopTenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,6 +181,9 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Genre.js" />
+    <Content Include="Scripts\Home.js" />
+    <Content Include="Scripts\Home_finished.js" />
     <Content Include="Scripts\jquery-1.6.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.2.js" />
     <Content Include="Scripts\jquery-1.6.2.min.js" />
@@ -211,6 +219,10 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Genres\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

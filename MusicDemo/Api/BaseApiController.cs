@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Web.Http;
 using MusicDemo.Models;
 
-namespace MusicDemo.Controllers
+namespace MusicDemo.Api
 {
     public abstract class BaseApiController : ApiController
     {

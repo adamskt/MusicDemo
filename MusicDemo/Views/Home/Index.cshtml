@@ -1,33 +1,19 @@
 ﻿@{
     ViewBag.Title = "Home";
+    ViewBag.ScriptName = "Home";
 }
 <div class="box">
     <h2>Welcome to the demo</h2>
-    <p>
-        
-    </p>
-</div>
-<div id="col1">
 
-</div>
-<div id="col2">
-
+    @*TODO: This paragraph should be replaced with the first 10 albums in the database.*@ 
+    <div></div>
 </div>
 <br class="clearfix" />
 </div>
 <div id="sidebar">
     <div class="box">
         <h3>Genres</h3>
-        <ul class="list">
-            <li class="first"><a href="#">Pharetra massa convallis</a></li>
-            <li><a href="#">Cras nulla ridiculus</a></li>
-            <li><a href="#">Feugiat arcu tempus congue</a></li>
-            <li><a href="#">Libero felis magna dolor</a></li>
-            <li><a href="#">Pulvinar ut facilisis duis</a></li>
-            <li><a href="#">Cras nulla ridiculus</a></li>
-            <li><a href="#">Feugiat arcu volutpat congue</a></li>
-            <li><a href="#">Libero felis dolor</a></li>
-            <li class="last"><a href="#">Venenatis et vel duis</a></li>
+        <ul class="list" data-bind="foreach: Genres">
+            <li><a data-bind="attr: { href: '/Genres/Details/' + GenreId }, text: Name"></a></li>
         </ul>
     </div>
-</div>

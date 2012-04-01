@@ -1,0 +1,38 @@
+===========ADD ALBUMS TO HOME PAGE============
+
+var GenreListViewModel = function () {
+    var self = this;
+    self.Genres = ko.observableArray();
+    self.Albums = ko.observableArray();
+
+    self.load = function (data, property) {
+        ko.utils.arrayForEach(data, function (item) {
+            property.push(item);
+        });
+    };
+}
+
+$(function () {
+
+    var viewModel = new GenreListViewModel();
+
+    $.get("/api/genres", function (data) {
+        viewModel.load(data, viewModel.Genres);
+    });
+
+    $.get("/api/topten", function (data) {
+        viewModel.load(data, viewModel.Albums);
+    });
+
+    ko.applyBindings(viewModel);
+});
+
+<div data-bind="foreach: Albums">
+    <p>
+        <img style="float: left;" data-bind="attr: { src: AlbumArtUrl }" />
+        <strong data-bind="text: Title"></strong><br />
+        By: <span data-bind="text: Artist.Name"></span><br />
+        Price: <span data-bind="text: Price"></span>
+    </p>           
+</div>
+
