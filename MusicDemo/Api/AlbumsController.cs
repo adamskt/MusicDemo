@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
@@ -16,19 +17,26 @@ namespace MusicDemo.Api
         }
 
         // GET /api/albums/5
-        public string Get(int id)
+        public Album Get(int id)
         {
-            return "value";
+            return entities.Albums.Include("Artist").SingleOrDefault(album => album.AlbumId == id);
         }
 
         // POST /api/albums
-        public void Post(string value)
+        public void Post(Album value)
         {
+            entities.Albums.Add(value);
+            entities.SaveChanges();
         }
 
         // PUT /api/albums/5
-        public void Put(int id, string value)
+        public void Put(int id, Album value)
         {
+
+            var album = entities.Albums.SingleOrDefault(a => a.AlbumId == id);
+
+            entities.Entry(album).CurrentValues.SetValues(value);
+            entities.SaveChanges();
         }
 
         // DELETE /api/albums/5

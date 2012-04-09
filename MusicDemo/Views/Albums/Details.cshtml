@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Album Details";
+    ViewBag.ScriptName = "Album";
+}
+
+<script type="text/javascript">
+    var albumId = "@ViewBag.AlbumId";
+</script>
+
+<style>
+
+    #editor input {
+        width: 30em;
+    }
+
+    #editor label {
+        display: inline-block;
+        width:  10em;
+    }
+    
+</style>
+
+<div class="box">
+    <h2 data-bind="text: Title"></h2>
+    <h3 data-bind="text: Artist"></h3>
+    <div>
+        Price: <span data-bind="text: DisplayPrice"></span><br />
+        <img data-bind="attr: { src: AlbumArtUrl, title: Title }" />
+    </div>
+    <a id="editLink" href="#">Edit</a>
+</div>
+
+<div id="editor" class="box">
+    <div class="ui-state-error" data-bind="text: ErrorMessage, visible: ErrorMessage().length > 0"></div>
+
+    <div style="color: #0094ff" data-bind="text: SuccessMessage, visible: SuccessMessage().length > 0"></div>
+
+    <label>Title:</label><input type="text" data-bind="value: Title" /><br />
+    <label>Artist:</label><span data-bind="text: Artist"></span><br />
+    <label>Price:</label><input type="number" data-bind="value: Price" /><br />
+    <label>Album Art URL:</label><input type="url" data-bind="value: AlbumArtUrl" /><br />
+
+    <button id="save" data-bind="click: Save">Save</button>
+
+</div>
+
+
+<br class="clearfix" />
+</div>
