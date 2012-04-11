@@ -36,3 +36,19 @@ $(function () {
     </p>           
 </div>
 
+
+==============  Custom Binding for zebra stripes ===============
+
+data-bind="stripe: {watch: Recent, even: 'light', odd: 'dark' }"
+
+
+ko.bindingHandlers.stripe = {
+    update: function (element, valueAccessor) {
+        var options = ko.utils.unwrapObservable(valueAccessor());
+        var watch = ko.utils.unwrapObservable(options.watch); //creates the dependency
+        //update odd rows
+        $(element).children(":nth-child(odd)").addClass(options.odd).removeClass(options.even);
+        //update even rows
+        $(element).children(":nth-child(even)").addClass(options.even).removeClass(options.odd);
+    }
+};
